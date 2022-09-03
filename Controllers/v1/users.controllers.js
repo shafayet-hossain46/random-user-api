@@ -105,15 +105,15 @@ module.exports.updateBulk = (req, res) => {
 
 // Delete User
 module.exports.deleteUser = (req, res) => {
-    const id = req.params.id
-    const newData = userArr.filter(user => user.id != id)
-    fs.writeFile('data.JSON', JSON.stringify(newData), (err)=> { // to send dynamic data you must stringify it.
-        if(err){
-            res.send("error")
-            res.end()
-        }else{
-            res.send("added")
-            res.end()
-        }
-    });
+        const id = req.params.id
+        const newData = userArr.filter(user => user.id != id)
+        fs.writeFile('data.JSON', JSON.stringify(newData), (err)=> { // to send dynamic data you must stringify it.
+            if(err){
+                res.send("error")
+                res.end()
+            }else{
+                res.send("added")
+                res.end()
+            }
+        });
 }
