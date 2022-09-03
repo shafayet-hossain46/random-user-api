@@ -105,6 +105,9 @@ module.exports.updateBulk = (req, res) => {
 
 // Delete User
 module.exports.deleteUser = (req, res) => {
+    if(req.params.id != Number){
+        res.send("Your ID Did Not Matched!!" .red)  
+    }else{
         const id = req.params.id
         const newData = userArr.filter(user => user.id != id)
         fs.writeFile('data.JSON', JSON.stringify(newData), (err)=> { // to send dynamic data you must stringify it.
@@ -116,4 +119,6 @@ module.exports.deleteUser = (req, res) => {
                 res.end()
             }
         });
+    }
+        
 }

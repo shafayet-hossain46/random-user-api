@@ -8,6 +8,9 @@ app.use(cors());
 app.use(express.json());
 
 // All Routes
+app.get('/', (req, res) => {
+  res.send("Welcome to random api user")
+})
 app.use("/api/v1/user/all", userRouter);
 app.use("/api/v1/user", userRouter);
 app.post("/api/v1/user", userRouter);
